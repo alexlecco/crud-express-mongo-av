@@ -6,12 +6,14 @@ let express        = require("express"),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
     mongoose       = require('mongoose');
+    cors           = require('cors');
 
 //app settings
 const port = 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
+app.use(cors());
 
 //connect mongodb----------------------------------
 mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
